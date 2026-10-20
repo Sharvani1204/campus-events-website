@@ -1,22 +1,22 @@
 # Campus Events Website
 
-A simple multi-page website for campus events, built using only **HTML and CSS**. No JavaScript, no frameworks, no libraries.
+A multi-page website for exploring campus events, viewing event details, checking schedules, and accessing a registration form. The project uses HTML, CSS, and JavaScript.
 
 ## Pages
 
 | Page | File | Description |
-|------|------|-------------|
-| Home | `index.html` | Banner, featured events and event categories |
-| About | `about.html` | About the platform, mission and event types |
-| Events | `events.html` | All upcoming events shown as cards |
-| Event Details | `event-details.html` | Full details of the selected event |
-| Schedule | `schedule.html` | Table with date, time, venue and category of every event |
-| Register | `register.html` | Event registration form |
+|---|---|---|
+| Home | `index.html` | Main banner, featured events, and event categories |
+| About | `about.html` | Information about the website, its purpose, and event types |
+| Events | `events.html` | Displays upcoming campus events |
+| Event Details | `event-details.html` | Shows detailed information about events |
+| Schedule | `schedule.html` | Displays event dates, times, venues, and categories |
+| Register | `register.html` | Provides the event registration form |
 
 ## Folder Structure
 
-```
-campus-events-website/
+```text
+Training-Project1/
 │
 ├── index.html
 ├── about.html
@@ -26,72 +26,83 @@ campus-events-website/
 ├── register.html
 ├── README.md
 │
+├── .vscode/
+│   └── settings.json
+│
 ├── css/
 │   └── style.css
 │
+├── js/
+│   ├── data.js
+│   ├── details.js
+│   ├── register.js
+│   └── search.js
+│
 └── images/
     ├── campus.jpg
+    ├── career.jpg
+    ├── cultural.jpg
+    ├── photography.jpg
+    ├── sports.jpg
     ├── students.jpg
     ├── tech-fest.jpg
-    ├── cultural.jpg
-    ├── sports.jpg
-    ├── workshop.jpg
-    ├── photography.jpg
-    └── career.jpg
+    └── workshop.jpg
 ```
-
-All six pages use one shared stylesheet, `css/style.css`.
-
-## How to Run
-
-1. Download or clone this repository.
-2. Open the folder in VS Code (or any editor).
-3. Double-click `index.html` to open it in a browser.
-
-## Navigation Flow
-
-```
-Home (index.html)
-   │
-   ▼
-Events (events.html) ───► Schedule (schedule.html)
-   │
-   ▼
-Event Details (event-details.html)
-   │
-   ▼
-Register (register.html)
-```
-
-## How Navigation Works Without JavaScript
-
-- **Links:** Every menu item and button is an anchor tag, for example `<a href="events.html">Events</a>`. The browser opens the file named in `href`, so no script is needed.
-- **Buttons:** Buttons like "View Details" are also anchor tags. CSS gives them the look of a button.
-- **Active menu item:** Each page adds `class="active"` to its own menu link, and CSS highlights it.
-
-### Showing the Right Event on the Details Page
-
-`event-details.html` holds all six events, but only one is visible at a time.
-
-1. Each event has its own `id`, for example `<div class="event" id="cultural-day">`.
-2. Each "View Details" link ends with that id, for example `event-details.html#cultural-day`.
-3. CSS hides every event with `display: none`.
-4. The `:target` selector matches the event whose id is in the link, and `display: block` shows it.
-5. If the page is opened without an id, Tech Fest is shown by default.
-
-## Features
-
-- Responsive-style card and grid layouts using CSS Flexbox and Grid
-- Hover effects on menu items, buttons and table rows, using CSS `:hover`
-- Registration form with built-in browser validation (`required`, `type="email"`, `type="date"`)
-- Colours written in `rgb()` format
-
-## Limitations
-
-- The registration form does not store data, because that needs a backend.
-- The search box is only for display, because searching needs JavaScript.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
+- **HTML5:** Structures the website pages and content.
+- **CSS3:** Handles styling, layouts, responsive design, and hover effects.
+- **JavaScript:** Supports event data, event details, registration-related interactions, and search functionality.
+
+## Features
+
+- Six interconnected website pages
+- Shared CSS stylesheet
+- Event cards and event information
+- Event schedule table
+- Event registration form
+- JavaScript files organized in a separate folder
+- Local images organized in an `images/` directory
+- Navigation links between pages
+
+## JavaScript Files
+
+| File | Purpose |
+|---|---|
+| `data.js` | Stores or manages event data |
+| `details.js` | Handles event details functionality |
+| `register.js` | Handles registration-related interactions |
+| `search.js` | Handles search functionality |
+
+*Note: The exact responsibilities of these JavaScript files depend on their implementation.*
+
+## How to Run
+
+1. Open the project folder in Visual Studio Code.
+2. Ensure the HTML, CSS, JavaScript, and image files are in their respective folders.
+3. Open `index.html` in a browser.
+4. Navigate between pages using the website menu.
+
+If the website uses JavaScript modules or fetches local data files, run it through a local development server, such as the VS Code Live Server extension.
+
+## Navigation Flow
+
+```text
+Home (index.html)
+   |
+   v
+Events (events.html) ------> Schedule (schedule.html)
+   |
+   v
+Event Details (event-details.html)
+   |
+   v
+Register (register.html)
+```
+
+Users can also navigate directly to the Home, About, Events, Schedule, and Register pages through the navigation menu.
+
+## Project Objective
+
+The objective is to develop a campus events website that organizes event information, schedules, details, and registration in a clear and accessible multi-page interface.
