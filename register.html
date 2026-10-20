@@ -24,64 +24,68 @@
             <h2>Event Registration</h2>
             <p>Fill out the form to register for an event.</p>
 
-            <form action="#" method="post">
+            <form id="registerForm" action="#" method="post" novalidate>
                 <div class="form-row">
                     <div>
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" placeholder="Enter your full name" required>
+                        <label for="fullname">Full Name *</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
+                        <small class="error" id="fullname-error"></small>
                     </div>
                     <div>
                         <label for="email">Email *</label>
-                        <input type="email" id="email" placeholder="yourname@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="yourname@example.com">
+                        <small class="error" id="email-error"></small>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div>
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        <input type="tel" id="phone" name="phone" maxlength="10" placeholder="Enter your phone number">
+                        <small class="error" id="phone-error"></small>
                     </div>
                     <div>
-                        <label for="dept">Department *</label>
-                        <select id="dept" required>
+                        <label for="department">Department *</label>
+                        <select id="department" name="department">
                             <option value="">Select department</option>
-                            <option>Computer Science</option>
-                            <option>Information Technology</option>
-                            <option>Electronics</option>
-                            <option>Mechanical</option>
-                            <option>Civil</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics</option>
+                            <option value="mech">Mechanical</option>
+                            <option value="civil">Civil</option>
                         </select>
+                        <small class="error" id="department-error"></small>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div>
-                        <label for="event">Choose an Event *</label>
-                        <select id="event" required>
+                        <label for="eventChoice">Choose an Event *</label>
+                        <select id="eventChoice" name="eventChoice">
                             <option value="">Select an event</option>
-                            <option>Tech Fest 2026</option>
-                            <option>Cultural Day</option>
-                            <option>Inter-College Sports Meet</option>
-                            <option>AI Workshop</option>
-                            <option>Photography Contest</option>
-                            <option>Career Guidance Talk</option>
                         </select>
+                        <small class="error" id="eventChoice-error"></small>
                     </div>
                     <div>
-                        <label for="date">Preferred Date *</label>
-                        <input type="date" id="date" required>
+                        <label for="prefDate">Preferred Date *</label>
+                        <input type="date" id="prefDate" name="prefDate">
+                        <small class="error" id="prefDate-error"></small>
                     </div>
                 </div>
 
                 <label for="message">Message (Optional)</label>
-                <textarea id="message" placeholder="Any additional information..."></textarea>
+                <textarea id="message" name="message" maxlength="300" placeholder="Any additional information..."></textarea>
 
-                <label class="check">
-                    <input type="checkbox" required>
-                    I agree to the event rules and regulations.
-                </label>
+                <fieldset>
+                    <legend>Terms and Conditions</legend>
+                    <label for="terms" class="check">
+                        <input type="checkbox" id="terms" name="terms" value="accepted">
+                        I agree to the event rules and regulations.
+                    </label>
+                </fieldset>
 
-                <button type="submit" class="btn btn-full">Register</button>
+                <button type="submit" id="submitBtn" class="btn btn-full" disabled>Register</button>
+                <p id="result" class="result"></p>
             </form>
         </div>
     </section>
@@ -106,5 +110,7 @@
     </footer>
     <p class="copyright">© 2026 Campus Events. All rights reserved.</p>
 
+    <script src="js/data.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
